@@ -37,6 +37,7 @@
             <h1><strong>Durim</strong><br /></h1>
             <p>Your health is our happiness!
                 <br /> Download on your Pebble watch now!</p>
+            <div class="chip"><span id="hits"></span> Views</div>
             <ul class="actions">
                 <li><a href="#one" style="color: black" class="btn waves-effect waves-dark white scrolly">Discover</a></li>
             </ul>
@@ -93,32 +94,32 @@
                         <img src="images/image1.jpeg">
                         <!-- random image -->
                         <div class="caption center-align">
-                            <h3>Postcode Finder</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3>Flexible</h3>
+                            <h5 class="light grey-text text-lighten-3">Get started right way!</h5>
                         </div>
                     </li>
                     <li>
                         <img src="images/image2.jpeg">
                         <!-- random image -->
                         <div class="caption left-align">
-                            <h3>Scientific Calc</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3>Safe</h3>
+                            <h5 class="light grey-text text-lighten-3">All your data is stored on our safe cloud</h5>
                         </div>
                     </li>
                     <li>
                         <img src="images/image3.jpeg">
                         <!-- random image -->
                         <div class="caption right-align">
-                            <h3>Octagon Logo</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3>Reliable</h3>
+                            <h5 class="light grey-text text-lighten-3">Any questions or comments? Email durim3000@gmail.com</h5>
                         </div>
                     </li>
                     <li>
                         <img src="images/image4.jpg">
                         <!-- random image -->
                         <div class="caption center-align">
-                            <h3>Alphabetizer Pic</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3>Simple</h3>
+                            <h5 class="light grey-text text-lighten-3">The easiest way to track your fitness data</h5>
                         </div>
                     </li>
                 </ul>
@@ -235,11 +236,30 @@
 
     $('.materialboxed').materialbox();
 
+
     $('.slider').slider({
         full_width: false
     });
 
     $('.slider').slider('start');
+
+    //Parse View Counter
+    var numOfHits;
+    var Hit = Parse.Object.extend("Hit");
+    var query = new Parse.Query(Hit);
+    //Gets the number of hits
+    query.get("viF2mWQO4q", {
+        success: function(hit) {
+            // The object was retrieved successfully.
+            hit.increment("numHits");
+            hit.save();
+            $("#hits").html(hit.get("numHits"));
+        },
+        error: function(object, error) {
+            // The object was not retrieved successfully.
+            // error is a Parse.Error with an error code and message.
+        }
+    });
 
     $("#signUp").click(function(e) {
 
@@ -262,8 +282,7 @@
         user.set("email", email);
         user.set("username", username);
         user.set("password", password);
-        user.set("randomPassword", password);
-        
+
 
         user.signUp(null, {
             success: function(user) {
@@ -306,6 +325,7 @@
             },
             // If there is an error
             error: function(user, error) {
+
                 alert("You've entered the wrong username or password!");
             }
         });

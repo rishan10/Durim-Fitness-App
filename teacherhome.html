@@ -33,7 +33,7 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <div style="min-height:70px; width: 100%;overflow-y:scroll;overflow-x:none;" id="resultsBox" class="text-center white black-text center">
+                <div style="min-height:70px; width: 100%;overflow:scroll;" id="resultsBox" class="text-center white black-text center">
                     <h4>Search for students...</h4>
                 </div>
                 <!--<div class="row">
@@ -155,7 +155,7 @@
                 resultsBoxClicked = true;
                 TweenLite.to($("#resultsBox"), 3, {
                     ease: Power2.easeOut,
-                    height: 1000
+                    height: 650
                 });
                 var str = '<table class="stripes responsive-table centered highlight"><thead><tr><th data-field="id">Name</th><th data-field="id">Username</th><th data-field="id">Add Friend?</th></tr></thead>';
 
@@ -198,7 +198,7 @@
 
                 $(".addStudent").click(function(e) {
                     var q1 = new Parse.Query(Parse.User);
-                    var self =  this;
+                    var self = this;
 
                     q1.find({
                         success: function(items) {
