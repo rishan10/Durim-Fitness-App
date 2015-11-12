@@ -8,4 +8,4 @@ This is Durim Tech and we are happy to announce our newest innovation. For more 
 
 Built at HackingEDU with the help of Rishan Girish (https://github.com/rishan10)
 
-![alt tag](https://github.com/sguduguntla/Durim-Fitness-App/master/touchicons/apple-touch-icon-180x180.png)
+![alt tag](https://github.com/sguduguntla/Durim-Fitness-App/blob/master/touchicons/apple-touch-icon-180x180.png)
