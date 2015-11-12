@@ -4,4 +4,4 @@ Durim is mainly geared towards schools that are interested in modernizing their 
 
 This is Durim Tech and we are happy to announce our newest innovation. For more info., about the Pebble watch, visit http://www.pebble.com. And look out for updates and stay in touch!
 
-Built at HackingEDU with the help of Rishan Girish
+Built at HackingEDU with the help of Rishan Girish (https://github.com/rishan10)
